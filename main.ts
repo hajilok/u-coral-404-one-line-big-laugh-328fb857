@@ -3,12 +3,12 @@ import { join } from "node:path";
 
 const MAX_CHARS = 200;
 
-// Generation-1 tournament leader (pending Generation-2 blind championship).
+// Generation-2 undefeated blind-tournament champion (92 UTF-8 bytes, single line).
 const ENTRY_LINE =
-  "I paid $400 to teach my dog boundaries, and now he shuts the door whenever I start crying.";
+  "The pastor asked who had a kind word for Uncle Frank, and the motion-sensor lights shut off.";
 
 function validateLine(line: string): string {
-  if (line.includes("\n") || line.includes("\r")) {
+  if (/[\r\n]/.test(line)) {
     throw new Error("Entry must be a single line without newline characters.");
   }
   const trimmed = line.trim();
@@ -23,7 +23,7 @@ function main(): void {
   const outputDir = process.argv[2] ?? "/output";
   const text = validateLine(ENTRY_LINE);
   mkdirSync(outputDir, { recursive: true });
-  writeFileSync(join(outputDir, "entry.txt"), text, "utf8");
+  writeFileSync(join(outputDir, "entry.txt"), text, { encoding: "utf8" });
 }
 
 main();
