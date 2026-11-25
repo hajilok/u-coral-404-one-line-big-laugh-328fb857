@@ -3,9 +3,9 @@ import { join } from "node:path";
 
 const MAX_CHARS = 200;
 
-// Generation-2 undefeated blind-tournament champion (92 UTF-8 bytes, single line).
+// Round-2 Gen-2 undefeated blind-tournament champion (91 UTF-8 bytes, single line).
 const ENTRY_LINE =
-  "The pastor asked who had a kind word for Uncle Frank, and the motion-sensor lights shut off.";
+  "The cop who pulled me over recognized me from high school, smiled, and called the K-9 unit.";
 
 function validateLine(line: string): string {
   if (/[\r\n]/.test(line)) {
